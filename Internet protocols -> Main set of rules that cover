@@ -1,0 +1,45 @@
+Internet protocols -> Main set of rules that covern the exchange or transmission of devices on seperate networks (compare against a language)
+
+HTTP Hypertext transfor protocol (6 Parts)
+Client Server
+Stateless
+Application Layer on top op Transfer through TCP
+Client Actions (Methods such as get post delete patch)
+Response Status Codes (200, 301, 302, 400)
+Headers Small bits of little information (I want it as a text file, or JSON etc)
+
+TCP - Transmission Control Protocol
+IP - Internet Protocol
+
+4 Different Layers:
+Applications - Uses protocols like HTTP and SMPT
+Transport - TCP UDP
+Internet - Information is chopped up in packages provided with a header
+Network - Internet protocol takes origin and receiving address
+
+Webclients can access web resources (HTML, JSON) though web servers
+
+Identified by unique URLs
+
+Web clients make requests -> Web server makes response (Read, Write etc) -> After response is given connection is closed
+
+Config.ru
+Scaling:
+
+- disable features not used
+Compress data
+Precompute data
+Cachin
+Find SQL commands that are inefficient
+Same as SEO tools, lots of queries that are made uneeded (slow - api credits)
+Batch request
+Force functionalities into GEMS
+Nearline storage -> Seperate between online and offline data (detailed vs generic)
+Assynchronus API
+Load Javascript below the fold / Lazyload
+Combine JS files into an ALL file like application.js or index.scss
+
+Debugging:
+ Two cases:
+
+For our final project of the bootcamp we made a streaming recommendation service. Long story short, it would collect grades, feedback and recommendations from your friends as well as your own and then give you a selection of series and movies you should like to watch. On our homepage we made a grid of movie posters, which were collected with an API from OMDB. Basically 4 movies and 4 series. On the last day we added a new functionality, which also showed what your friends are watching. It all looked great, but after merging we noticed that on some occasions the grid broke in a really strange way, only showing 3 posters and shifting one to the bottom. It took a long time, I think I counted all the divs a million times, but we really couldn’t find it. Removing the last changes to the homepage also didn’t result in a fix. We reverted back to a previous version, also no fix. In the end what we found is that our growing database was causing the problem. Our API worked so that it only included new movies and series after they were searched by someone. We did this in order to populate our database and not burn through all our credits. Once something was searched we included it in our own database. Problem was that not all movies had a movieposter so a blank was returned, so these movies where exluded from being shown. When our database grew, a really small number of these movies created a bug, which we hadn’t anticipated before. Only after we no longer relied on the seeds but actual users these problems occured. In the end the solution was straight forward, for the purpose of the presentation we excluded the blanks as a option for the homepage. I think the moral of the story is that at the end of the project made changes came together, so it was easy to actually look for the problem in one of the last changes we made where actually the problem had been present since maybe day 1 or 2 of the project. Taking a step back in the end was enough to find the problem which was not so hard a it looked.
